@@ -1,8 +1,24 @@
 # Physics & Mathematics Notes
 
-Short LaTeX notes, published on GitHub Pages as HTML (via lwarp + MathJax) and PDF.
+A collection of notes I've written throughout my studies. They're my personal knowledge vault, a place to write things down properly once I've understood them. I also want them to be useful to others, so they're public.
 
-## Layout
+**Read them online:** <https://josefgull.github.io/Notes/>
+
+Every note is available as a web page and as a PDF.
+
+## Notes
+
+- [Dirac Notes for Integration over Energy Surfaces](https://josefgull.github.io/Notes/notes/dirac/)
+- [Multipole Expansion: A Tutorial](https://josefgull.github.io/Notes/notes/multipole/) *(work in progress)*
+- [Boundary Value Problems](https://josefgull.github.io/Notes/notes/boundary-value/) *(work in progress)*
+
+If you find a mistake or something is unclear, feel free to open an issue.
+
+---
+
+## How it works
+
+The notes are written in LaTeX and converted to HTML with [lwarp](https://ctan.org/pkg/lwarp) (math rendered by MathJax). The site is hosted on GitHub Pages.
 
 ```text
 index.html            generated list of all notes
@@ -13,14 +29,14 @@ notes/<name>/
   lwarp*.css          generated styles
 ```
 
-## Adding a note
+### Adding a note
 
-1. Create `notes/<name>/<name>.tex`. Copy `notes/dirac/dirac.tex` as a template; the important parts are:
+1. Create `notes/<name>/<name>.tex`, using `notes/dirac/dirac.tex` as a template. Keep:
    - `\usepackage[mathjax]{lwarp}` right after `\documentclass`
-   - `\title{...}` (used as page title and in the root index)
-   - `\HTMLDescription{...}` (meta description for search engines)
+   - `\title{...}` (page title and entry in the root index)
+   - `\HTMLDescription{...}` (meta description)
    - the `warpHTML` block with the "Download PDF" link
-2. Build and commit the outputs:
+2. Build and push:
 
 ```bash
 ./build.sh          # all notes
@@ -28,15 +44,4 @@ notes/<name>/
 git add -A && git commit -m "Add note" && git push
 ```
 
-Requires TeX Live with `lwarp`, `lualatex` and `rsync`.
-
-## Preview locally
-
-```bash
-python3 -m http.server
-# open http://localhost:8000/
-```
-
-## Publishing
-
-Settings → Pages → Deploy from branch → `main`, folder `/ (root)`.
+Requires TeX Live (`lwarp`, `lualatex`) and `rsync`. Preview locally with `python3 -m http.server` and open <http://localhost:8000/>.
