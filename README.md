@@ -10,6 +10,7 @@ Every note is available as a web page and as a PDF.
 
 - [Dirac Notes for Integration over Energy Surfaces](https://josefgull.github.io/Notes/notes/dirac/)
 - [Multipole Expansion: A Tutorial](https://josefgull.github.io/Notes/notes/multipole/) *(work in progress)*
+- [Polarisierung und Magnetisierung](https://josefgull.github.io/Notes/notes/polarisierung-magnetisierung/) *(German)*
 - [Boundary Value Problems](https://josefgull.github.io/Notes/notes/boundary-value/) *(work in progress)*
 
 If you find a mistake or something is unclear, feel free to open an issue.

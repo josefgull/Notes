@@ -1,0 +1,157 @@
+\documentclass[11pt]{article}
+% Enable LaTeX->HTML conversion
+\usepackage[mathjax]{lwarp}
+\usepackage[margin=1in]{geometry}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\title{Polarisierung und Magnetisierung}
+\author{Josef Gull}
+\date{June 2026}
+\HTMLDescription{Polarisierung und Magnetisierung: gebundene Ladungen und Ströme, Sprungbedingungen an Grenzflächen sowie lineare Dielektrika und Magnetika.}
+
+\begin{document}
+\maketitle
+\begin{warpHTML}
+\begin{BlockClass}{pdflink}
+\href{polarisierung-magnetisierung.pdf}{Download PDF}
+\end{BlockClass}
+\end{warpHTML}
+\tableofcontents
+
+\section{Polarisierung}
+Besteht ein Material aus vielen kleinen Dipolen, liegt makroskopisch vorerst keine Ladungstrennung vor. Das bedeutet, dass es makroskopisch zu keinen Ladungsansammlungen kommt. Richten sich die Dipole im Mittel jedoch gemeinsam aus, entstehen bei einer homogenen Polarisation an den Enden des Materials Überschussladungen. Diese dienen als Quellen und Senken des elektrischen Flusses.
+
+Das elektrische Feld wird folglich von der Gesamtheit aus freien und gebundenen Ladungen verursacht:
+\begin{equation}
+    \nabla \cdot (\epsilon_0 \vec{E}) = \rho = \rho_f + \rho_b
+\end{equation}
+
+Die dielektrische Verschiebung hingegen wird ausschließlich von den freien Ladungen geprägt:
+\begin{equation}
+    \nabla \cdot \vec{D} = \rho_f
+\end{equation}
+
+Der zusätzliche Fluss, der von den gebundenen Ladungen herrührt, wird über das Feld der Polarisation beschrieben:
+\begin{equation}
+    \nabla \cdot \vec{P} = -\rho_b
+\end{equation}
+
+Daraus ergibt sich der bekannte Zusammenhang zwischen der dielektrischen Verschiebung, der Feldstärke und der Polarisation:
+\begin{equation}
+    \vec{D} = \epsilon_0 \vec{E} + \vec{P}
+\end{equation}
+
+\subsection{Sprungbedingungen}
+Um die Sprungbedingungen für das Feld der Polarisation einzuführen, können wir uns auf die allgemeingültigen Sprungbedingungen der dielektrischen Verschiebung berufen. An einer Grenzfläche gilt für die Normalkomponenten mit dem Normalenvektor $\vec{n}$:
+\begin{equation}
+    \vec{n} \cdot (\vec{D}_2 - \vec{D}_1) = \sigma_f
+\end{equation}
+
+Setzt man den Materialzusammenhang ein, erhält man:
+\begin{equation}
+    \vec{n} \cdot \left( (\epsilon_0 \vec{E}_2 + \vec{P}_2) - (\epsilon_0 \vec{E}_1 + \vec{P}_1) \right) = \sigma_f
+\end{equation}
+
+Isoliert man den Sprung der Polarisation auf der linken Seite, lässt sich die Bedingung wie folgt umschreiben:
+\begin{equation}
+    \vec{n} \cdot (\vec{P}_2 - \vec{P}_1) = \sigma_f - \epsilon_0 \vec{n} \cdot (\vec{E}_2 - \vec{E}_1)
+\end{equation}
+
+Da der Sprung des elektrischen Feldes mit der Gesamtoberflächenladungsdichte ($\sigma = \sigma_f + \sigma_b$) zusammenhängt ($\epsilon_0 \vec{n} \cdot (\vec{E}_2 - \vec{E}_1) = \sigma_f + \sigma_b$), vereinfacht sich der Sprung der Normalkomponente der Polarisation direkt zu den gebundenen Oberflächenladungen:
+\begin{equation}
+    \vec{n} \cdot (\vec{P}_2 - \vec{P}_1) = -\sigma_b
+\end{equation}
+
+Für die Transversalkomponente (Tangentialkomponente) betrachten wir die Stetigkeit der Tangentialkomponente des elektrischen Feldes ($\vec{n} \times (\vec{E}_2 - \vec{E}_1) = 0$). Für lineare Medien gilt $\vec{P} = \epsilon_0 \chi_e \vec{E}$. Wegen $\vec{P}/\chi_e = \epsilon_0 \vec{E}$ ist an der Grenzfläche also nicht die Transversalkomponente der Polarisation selbst stetig, sondern die von $\vec{P}/\chi_e$:
+\begin{equation}
+    \vec{n} \times \left( \frac{\vec{P}_2}{\chi_{e,2}} - \frac{\vec{P}_1}{\chi_{e,1}} \right) = 0
+    \quad \Rightarrow \quad
+    \vec{n} \times \vec{P}_2 = \frac{\chi_{e,2}}{\chi_{e,1}} \, \vec{n} \times \vec{P}_1
+\end{equation}
+Die Transversalkomponente von $\vec{P}$ springt also gemeinsam mit der Suszeptibilität. Nur bei gleichen Materialeigenschaften ($\chi_{e,1} = \chi_{e,2}$) ist sie stetig:
+\begin{equation}
+    \vec{n} \times (\vec{P}_2 - \vec{P}_1) = 0
+\end{equation}
+
+\subsection{Lineare Dielektrika}
+Für ein lineares, isotropes Dielektrikum ist die Polarisation direkt proportional zum elektrischen Feld über die elektrische Suszeptibilität $\chi_e$:
+\begin{equation}
+    \vec{P} = \epsilon_0 \chi_e \vec{E}
+\end{equation}
+
+Damit lässt sich die dielektrische Verschiebung mit der relativen Permittivität $\epsilon_r = 1 + \chi_e$ ausdrücken als:
+\begin{equation}
+    \vec{D} = \epsilon_0 (1 + \chi_e) \vec{E} = \epsilon_0 \epsilon_r \vec{E} = \epsilon \vec{E}
+\end{equation}
+
+
+\section{Magnetisierung}
+Besteht ein Material aus vielen kleinen magnetischen Dipolen (z. B. durch Elektronenspins oder Kreisströme), liegt makroskopisch vorerst keine magnetische Ausrichtung vor. Das bedeutet, dass es makroskopisch zu keinen Netto-Magnetisierungsströmen kommt. Richten sich die Dipole im Mittel jedoch gemeinsam aus, entstehen bei einer homogenen Magnetisierung an den Rändern des Materials gebundene Oberflächenströme. Diese dienen als Wirbel des magnetischen Feldes.
+
+Die magnetische Flussdichte wird folglich von der Gesamtheit aus freien und gebundenen Strömen verursacht:
+\begin{equation}
+    \nabla \times \left(\frac{1}{\mu_0} \vec{B}\right) = \vec{j} = \vec{j}_f + \vec{j}_b
+\end{equation}
+
+Die magnetische Feldstärke hingegen wird ausschließlich von den freien Strömen geprägt:
+\begin{equation}
+    \nabla \times \vec{H} = \vec{j}_f
+\end{equation}
+
+Der zusätzliche Wirbel, der von den gebundenen Strömen herrührt, wird über das Feld der Magnetisierung beschrieben:
+\begin{equation}
+    \nabla \times \vec{M} = \vec{j}_b
+\end{equation}
+
+Daraus ergibt sich der bekannte Zusammenhang zwischen der magnetischen Flussdichte, der Feldstärke und der Magnetisierung:
+\begin{equation}
+    \vec{H} = \frac{1}{\mu_0} \vec{B} - \vec{M} \quad \text{bzw.} \quad \vec{B} = \mu_0 (\vec{H} + \vec{M})
+\end{equation}
+
+\subsection{Sprungbedingungen}
+Um die Sprungbedingungen für das Feld der Magnetisierung einzuführen, können wir uns auf die allgemeingültigen Sprungbedingungen der magnetischen Feldstärke berufen. An einer Grenzfläche gilt für die Tangentialkomponenten mit dem Normalenvektor $\vec{n}$:
+\begin{equation}
+    \vec{n} \times (\vec{H}_2 - \vec{H}_1) = \vec{K}_f
+\end{equation}
+
+Setzt man den Materialzusammenhang ein, erhält man:
+\begin{equation}
+    \vec{n} \times \left( \left(\frac{1}{\mu_0} \vec{B}_2 - \vec{M}_2\right) - \left(\frac{1}{\mu_0} \vec{B}_1 - \vec{M}_1\right) \right) = \vec{K}_f
+\end{equation}
+
+Isoliert man den Sprung der Magnetisierung, lässt sich die Bedingung wie folgt umschreiben:
+\begin{equation}
+    \vec{n} \times (\vec{M}_2 - \vec{M}_1) = \frac{1}{\mu_0} \vec{n} \times (\vec{B}_2 - \vec{B}_1) - \vec{K}_f
+\end{equation}
+
+Da der Sprung der magnetischen Flussdichte mit der Gesamtoberflächenstromdichte ($\vec{K} = \vec{K}_f + \vec{K}_b$) zusammenhängt ($\frac{1}{\mu_0} \vec{n} \times (\vec{B}_2 - \vec{B}_1) = \vec{K}_f + \vec{K}_b$), vereinfacht sich der Sprung der Tangentialkomponente der Magnetisierung direkt zu den gebundenen Oberflächenströmen:
+\begin{equation}
+    \vec{n} \times (\vec{M}_2 - \vec{M}_1) = \vec{K}_b
+\end{equation}
+
+Für die Normalkomponente nutzen wir die fundamentale Maxwell-Gleichung der Quellenfreiheit des Magnetfeldes, nach der die Normalkomponente der magnetischen Flussdichte immer stetig ist ($\vec{n} \cdot (\vec{B}_2 - \vec{B}_1) = 0$). Für lineare Medien gilt $\vec{M} = \chi_m \vec{H} = \frac{\chi_m}{\mu} \vec{B}$. Wegen $\frac{\mu}{\chi_m} \vec{M} = \vec{B}$ ist an der Grenzfläche also nicht die Normalkomponente der Magnetisierung selbst stetig, sondern die von $\frac{\mu}{\chi_m} \vec{M}$:
+\begin{equation}
+    \vec{n} \cdot \left( \frac{\mu_2}{\chi_{m,2}} \vec{M}_2 - \frac{\mu_1}{\chi_{m,1}} \vec{M}_1 \right) = 0
+    \quad \Rightarrow \quad
+    \vec{n} \cdot \vec{M}_2 = \frac{\mu_1 \chi_{m,2}}{\mu_2 \chi_{m,1}} \, \vec{n} \cdot \vec{M}_1
+\end{equation}
+Die Normalkomponente von $\vec{M}$ springt also mit den Materialeigenschaften. Nur bei identischen Permeabilitäten ($\mu_1 = \mu_2$, also auch $\chi_{m,1} = \chi_{m,2}$) ist sie stetig:
+\begin{equation}
+    \vec{n} \cdot (\vec{M}_2 - \vec{M}_1) = 0
+\end{equation}
+
+\subsection{Lineare Magnetika}
+Für ein lineares, isotropes Medium ist die Magnetisierung direkt proportional zur magnetischen Feldstärke über die magnetische Suszeptibilität $\chi_m$:
+\begin{equation}
+    \vec{M} = \chi_m \vec{H}
+\end{equation}
+
+Damit lässt sich die magnetische Flussdichte mit der relativen Permeabilität $\mu_r = 1 + \chi_m$ ausdrücken als:
+\begin{equation}
+    \vec{B} = \mu_0 (1 + \chi_m) \vec{H} = \mu_0 \mu_r \vec{H} = \mu \vec{H}
+\end{equation}
+
+\end{document}
